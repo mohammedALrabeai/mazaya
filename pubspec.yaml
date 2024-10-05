@@ -1,0 +1,38 @@
+name: mazaya
+description: A new Flutter project.
+version: 1.0.0+1
+environment: 
+  sdk: '>=3.4.4 <4.0.0'
+dependencies: 
+  flutter: 
+    sdk: flutter
+  flutter_localizations: 
+    sdk: flutter
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.10+1
+  responsive_grid_list: ^1.4.0
+  carousel_slider_plus: ^7.0.0
+  connectivity_plus: ^6.0.4
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - assets/
+    - assets/images/
+  fonts: 
+    - family: Tajawal
+      fonts: 
+        - asset: assets/fonts/TajawalRegular.ttf
+          weight: 400
+        - asset: assets/fonts/TajawalBlack.ttf
+          weight: 900
+        - asset: assets/fonts/TajawalBold.ttf
+          weight: 700
+        - asset: assets/fonts/TajawalMedium.ttf
+          weight: 500
+    - family: Cairo
+      fonts: 
+        - asset: assets/fonts/CairoBold.ttf
+          weight: 700
