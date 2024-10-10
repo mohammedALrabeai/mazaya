@@ -6,8 +6,8 @@ import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_icon_button.dart';
 
-class OneScreen extends StatelessWidget {
-  OneScreen({Key? key})
+class AboutScreen extends StatelessWidget {
+  AboutScreen({Key? key})
       : super(
           key: key,
         );
@@ -207,7 +207,7 @@ class OneScreen extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 74.h),
                           child: Text(
-                            "تطبيق مزايا",
+                            "حول تطبيق مزايا",
                             style: theme.textTheme.headlineLarge,
                           ),
                         ),
@@ -304,7 +304,7 @@ class OneScreen extends StatelessWidget {
             CustomElevatedButton(
               height: 78.h,
               width: 326.h,
-              text: "تصنيفات العروض",
+              text: "رجوع",
               margin: EdgeInsets.only(right: 38.h),
               rightIcon: Container(
                 margin: EdgeInsets.only(left: 6.h),
@@ -316,59 +316,11 @@ class OneScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.k5Screen);
+                Navigator.pop(context);
               },
               buttonTextStyle: CustomTextStyles.headlineLargeBlack900,
             ),
             SizedBox(height: 30.h),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, AppRoutes.k8Screen);
-              },
-              child: Container(
-                margin: EdgeInsets.only(right: 38.h),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 26.h,
-                  vertical: 8.h,
-                ),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.onPrimary.withOpacity(1),
-                  borderRadius: BorderRadiusStyle.roundedBorder38,
-                  boxShadow: [
-                    BoxShadow(
-                      color: appTheme.black900.withOpacity(0.25),
-                      spreadRadius: 2.h,
-                      blurRadius: 2.h,
-                      offset: Offset(
-                        0,
-                        4,
-                      ),
-                    )
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 14.h),
-                      child: Text(
-                        "أحدث العــــروض",
-                        style: CustomTextStyles.headlineLargeBlack900,
-                      ),
-                    ),
-                    SizedBox(width: 14.h),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgArrowleft,
-                      height: 40.h,
-                      width: 50.h,
-                      alignment: Alignment.center,
-                    )
-                  ],
-                ),
-              ),
-            ),
             SizedBox(height: 226.h)
           ],
         ),

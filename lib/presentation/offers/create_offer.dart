@@ -9,12 +9,18 @@ import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 
 // ignore_for_file: must_be_immutable
-class K1Screen extends StatelessWidget {
-  K1Screen({Key? key})
+class CreatOfferScreen extends StatefulWidget {
+  CreatOfferScreen({Key? key})
       : super(
           key: key,
         );
 
+  @override
+  State<CreatOfferScreen> createState() => _CreatOfferScreenState();
+}
+
+class _CreatOfferScreenState extends State<CreatOfferScreen> {
+  bool value = false;
   TextEditingController emailInputController = TextEditingController();
 
   TextEditingController nameInputController = TextEditingController();
@@ -24,7 +30,9 @@ class K1Screen extends StatelessWidget {
   TextEditingController messageSubjectInputController = TextEditingController();
 
   TextEditingController messageBodyInputController = TextEditingController();
+
   var scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -205,7 +213,7 @@ class K1Screen extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(right: 36.h),
                         child: Text(
-                          " الرئيسية | تواصل معنا",
+                          " الرئيسية  | تقديم عرض",
                           style: CustomTextStyles.bodyMediumOnPrimary_1,
                         ),
                       ),
@@ -216,13 +224,10 @@ class K1Screen extends StatelessWidget {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: "اتصل بنا\n",
+                                text: "من فضلك قم بتعبئة البيانات التالية ",
+                                // text: "تقديم عرض \n",
                                 style: theme.textTheme.headlineSmall,
                               ),
-                              TextSpan(
-                                text: "نسعد بالإجابة على استفساراتكم",
-                                style: CustomTextStyles.bodyLargeOnPrimary_1,
-                              )
                             ],
                           ),
                           textAlign: TextAlign.right,
@@ -230,27 +235,10 @@ class K1Screen extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      SizedBox(height: 36.h),
                       Padding(
                         padding: EdgeInsets.only(right: 36.h),
                         child: Text(
-                          "البريد الالكتروني",
-                          style: theme.textTheme.headlineSmall,
-                        ),
-                      ),
-                      SizedBox(height: 10.h),
-                      Padding(
-                        padding: EdgeInsets.only(right: 40.h),
-                        child: Text(
-                          "mazaya@tu.edu.sa.com",
-                          style: CustomTextStyles.bodySmallOnPrimary,
-                        ),
-                      ),
-                      SizedBox(height: 32.h),
-                      Padding(
-                        padding: EdgeInsets.only(right: 36.h),
-                        child: Text(
-                          "تواصل معنا",
+                          "تقديم عرض",
                           style: theme.textTheme.headlineLarge,
                         ),
                       ),
@@ -345,15 +333,23 @@ class K1Screen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildNameInput(BuildContext context) {
-    return CustomTextFormField(
-      controller: nameInputController,
-      hintText: "الاسم",
-      hintStyle: CustomTextStyles.bodyMediumBlack900,
-      contentPadding: EdgeInsets.symmetric(
-        horizontal: 12.h,
-        vertical: 16.h,
-      ),
+  Widget _buildNameInput(BuildContext context, String text, String hintText) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Text(text, style: CustomTextStyles.titleLargeBlack900),
+        ]),
+        CustomTextFormField(
+          // controller: nameInputController,
+          hintText: hintText,
+          hintStyle: CustomTextStyles.bodyMediumBlack900,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 12.h,
+            vertical: 16.h,
+          ),
+        ),
+      ],
     );
   }
 
@@ -404,7 +400,7 @@ class K1Screen extends StatelessWidget {
     return CustomElevatedButton(
       height: 44.h,
       width: 152.h,
-      text: "أرسل الرسالة",
+      text: "أرسل ",
       buttonStyle: CustomButtonStyles.none,
       decoration: CustomButtonStyles.gradientPrimaryToOrangeTL22Decoration,
       buttonTextStyle: CustomTextStyles.titleLargeRegular,
@@ -446,16 +442,48 @@ class K1Screen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                _buildNameInput(context),
+                _buildNameInput(context, "الفئة", "التعليم"),
                 SizedBox(height: 12.h),
-                _buildEmailInput1(context),
+                _buildNameInput(
+                    context, "الفئة المستهدفة", "اعضاء هيئة التدريس"),
                 SizedBox(height: 12.h),
-                _buildMessageSubjectInput(context)
+                _buildNameInput(context, "اسم المنشأة", "اسم صاحب المنشأة"),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "رقم السجل التجاري", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "المدينة", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "مقدار الخصم", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "الفروع المقدمة للخصم ", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "تاريخ بداية العرض ", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "تاريخ نهاية العرض ", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "اسم الشخص المنسق ", ""),
+                SizedBox(height: 12.h),
+                _buildNameInput(context, "رقم الهاتف", ""),
+                SizedBox(height: 12.h),
+                CheckboxListTile(
+                    value: value,
+                    title: Text(
+                      "اتعهد بان جميع البينات المدخلة صحسحة ولجامعة الطائف الحق فيما تراه مناسبا",
+                      style: CustomTextStyles.bodyMediumBlack900,
+                      textAlign: TextAlign.right,
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        this.value = value!;
+                      });
+                    }),
+                SizedBox(height: 12.h),
+                // _buildMessageSubjectInput(context)
               ],
             ),
           ),
           SizedBox(height: 20.h),
-          _buildMessageBodyInput(context),
+          // _buildMessageBodyInput(context),
           SizedBox(height: 20.h),
           Container(
             width: double.maxFinite,

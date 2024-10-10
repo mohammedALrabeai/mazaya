@@ -98,15 +98,20 @@ class K0Screen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  width: 132.h,
-                  margin: EdgeInsets.only(right: 38.h),
-                  child: Text(
-                    "حول مزايا",
-                    maxLines: 7,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.right,
-                    style: CustomTextStyles.titleLargeRegular,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.aboutScreen);
+                  },
+                  child: Container(
+                    width: 132.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "حول مزايا",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
                   ),
                 ),
                 InkWell(
@@ -141,15 +146,20 @@ class K0Screen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  width: 132.h,
-                  margin: EdgeInsets.only(right: 38.h),
-                  child: Text(
-                    "تقديم عرض",
-                    maxLines: 7,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.right,
-                    style: CustomTextStyles.titleLargeRegular,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.creatOfferScreen);
+                  },
+                  child: Container(
+                    width: 132.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "تقديم عرض",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
                   ),
                 ),
                 SizedBox(height: 96.h)

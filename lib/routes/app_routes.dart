@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../presentation/about/about_screen.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
 import '../presentation/k0_screen/k0_screen.dart';
 import '../presentation/k1_screen/k1_screen.dart';
@@ -7,6 +8,7 @@ import '../presentation/k5_screen/k5_screen.dart';
 import '../presentation/k6_screen/k6_screen.dart';
 import '../presentation/k7_screen/k7_screen.dart';
 import '../presentation/k8_screen/k8_screen.dart';
+import '../presentation/offers/create_offer.dart';
 import '../presentation/one_screen/one_screen.dart';
 import '../presentation/tow_screen/tow_screen.dart';
 
@@ -29,6 +31,8 @@ class AppRoutes {
   static const String k7Screen = '/k7_screen';
 
   static const String k8Screen = '/k8_screen';
+  static const String creatOfferScreen = '/creatOfferScreen';
+  static const String aboutScreen = '/aboutScreen';
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
@@ -44,6 +48,8 @@ class AppRoutes {
     k6Screen: (context) => K6Screen(),
     k7Screen: (context) => K7Screen(),
     k8Screen: (context) => K8Screen(),
+    creatOfferScreen: (context) => CreatOfferScreen(),
+    aboutScreen: (context) => AboutScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
     initialRoute: (context) => OneScreen()
   };

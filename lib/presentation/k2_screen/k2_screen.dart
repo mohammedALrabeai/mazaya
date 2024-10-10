@@ -16,14 +16,163 @@ class K2Screen extends StatelessWidget {
         );
 
   TextEditingController lockoneController = TextEditingController();
-
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController locationoneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: scaffoldKey,
         backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+        drawer: Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.symmetric(vertical: 28.h),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  ImageConstant.imgGroup219,
+                ),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CustomAppBar(
+                  title: Padding(
+                    padding: EdgeInsets.only(
+                      left: 42.h,
+                      top: 11.h,
+                      bottom: 33.h,
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        if (scaffoldKey.currentState!.isDrawerOpen)
+                          scaffoldKey.currentState?.closeDrawer();
+                        else
+                          scaffoldKey.currentState?.openDrawer();
+                      },
+                      child: Column(
+                        children: [
+                          AppbarTitleImage(
+                            imagePath: ImageConstant.imgVector,
+                          ),
+                          SizedBox(height: 8.h),
+                          AppbarTitleImage(
+                            imagePath: ImageConstant.imgVector,
+                          ),
+                          SizedBox(height: 8.h),
+                          AppbarTitleImage(
+                            imagePath: ImageConstant.imgVector,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  actions: [
+                    AppbarTrailingImage(
+                      imagePath: ImageConstant.imgImage5,
+                      margin: EdgeInsets.only(right: 36.h),
+                    )
+                  ],
+                ),
+                SizedBox(height: 22.h),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(
+                        context, AppRoutes.oneScreen);
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(
+                          context, AppRoutes.oneScreen);
+                    },
+                    child: Container(
+                      width: 132.h,
+                      margin: EdgeInsets.only(right: 38.h),
+                      child: Text(
+                        "الرئيسية",
+                        maxLines: 7,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.right,
+                        style: CustomTextStyles.titleLargeRegular,
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.aboutScreen);
+                  },
+                  child: Container(
+                    width: 132.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "حول مزايا",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.k0Screen);
+                  },
+                  child: Container(
+                    width: 400.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "الأسئلة الشائعة",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.k2Screen);
+                  },
+                  child: Container(
+                    width: 132.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "تسجيل الدخول",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.creatOfferScreen);
+                  },
+                  child: Container(
+                    width: 132.h,
+                    margin: EdgeInsets.only(right: 38.h),
+                    child: Text(
+                      "تقديم عرض",
+                      maxLines: 7,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.right,
+                      style: CustomTextStyles.titleLargeRegular,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 96.h)
+              ],
+            ),
+          ),
+        ),
         body: SizedBox(
           width: double.maxFinite,
           child: SingleChildScrollView(
@@ -82,26 +231,34 @@ class K2Screen extends StatelessWidget {
   /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
-      title: Padding(
-        padding: EdgeInsets.only(
-          left: 42.h,
-          top: 11.h,
-          bottom: 33.h,
-        ),
-        child: Column(
-          children: [
-            AppbarTitleImage(
-              imagePath: ImageConstant.imgVector,
-            ),
-            SizedBox(height: 8.h),
-            AppbarTitleImage(
-              imagePath: ImageConstant.imgVector,
-            ),
-            SizedBox(height: 8.h),
-            AppbarTitleImage(
-              imagePath: ImageConstant.imgVector,
-            )
-          ],
+      title: InkWell(
+        onTap: () {
+          if (scaffoldKey.currentState!.isDrawerOpen)
+            scaffoldKey.currentState?.closeDrawer();
+          else
+            scaffoldKey.currentState?.openDrawer();
+        },
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 42.h,
+            top: 11.h,
+            bottom: 33.h,
+          ),
+          child: Column(
+            children: [
+              AppbarTitleImage(
+                imagePath: ImageConstant.imgVector,
+              ),
+              SizedBox(height: 8.h),
+              AppbarTitleImage(
+                imagePath: ImageConstant.imgVector,
+              ),
+              SizedBox(height: 8.h),
+              AppbarTitleImage(
+                imagePath: ImageConstant.imgVector,
+              )
+            ],
+          ),
         ),
       ),
       actions: [
